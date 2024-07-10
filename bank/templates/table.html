@@ -1,0 +1,48 @@
+{% extends "parent.html" %}
+
+{% block title %}
+    <title>Show Details</title>
+{% endblock title %}
+
+{% block main %}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Account Reports</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Account Number</th>
+                            <th>Account Type</th>
+                            <th>Owner Name</th>
+                            <th>Branch Name</th>
+                            <th>Gender</th>
+                            <th>Account Balance</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for acc in accounts %}
+                        <tr>                            
+                            <td>{{ acc[0] }}</td>
+                            <td>{{ acc[1] }}</td>
+                            <td>{{ acc[2] }}</td>
+                            <td>{{ acc[3] }}</td>
+                            <td>{{ acc[4] }}</td>
+                            <td>{{ acc[5] }}</td>
+                            <td>{{ acc[6] }}</td>
+                            <td><a href="/acc_update?id={{ acc[0] }}" class="btn btn-sm btn-warning">Update</a>
+                           <a href="/delete?id={{ acc[0] }}" class="btn btn-sm btn-primary">Delete</a></td>
+                        </tr> 
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

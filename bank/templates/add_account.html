@@ -1,0 +1,58 @@
+{% extends "parent.html" %}
+
+{% block title %}
+<title>Add Account</title>
+{% endblock title %}
+
+{% block main %}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Add Account</h5>
+                <form action="/add_account" method="POST">
+                    <div class="mb-3">
+                        <label for="acnum" class="form-label">Account Number</label>
+                        <input type="text" class="form-control" id="acnum" name="acnum" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="actype" class="form-label">Account Type</label>
+                        <select class="form-control" id="actype" name="actype" required>
+                            <option value="">Select any one</option>
+                            <option value="saving">Saving</option>
+                            <option value="current">Current</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="owname" class="form-label">Owner Name</label>
+                        <input type="text" class="form-control" id="owname" name="owname" aria-describedby="emailHelp">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="branch" class="form-label">Branch Name</label>
+                        <input type="text" class="form-control" id="branch" name="branch" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="">Select any one</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="balance" class="form-label">Account Balance</label>
+                        <input type="number" class="form-control" id="balance" name="balance" required>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
