@@ -1,0 +1,43 @@
+{% extends "parent.html" %}
+
+{% block title %}
+    <title>Show Books</title>
+{% endblock title %}
+
+{% block main %}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Books Details</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Book Name</th>
+                            <th>Author</th>
+                            <th>Year_Published</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in allbook %}
+                        <tr>                            
+                            <td>{{book.id}}</td>
+                            <td>{{book.title}}</td>
+                            <td>{{book.author}}</td>
+                            <td>{{book.year_published}}</td>
+                            <td>{{book.isbn}}</td>
+                            <td><a href="/updatebook?id={{ book.id }}" class="btn btn-sm btn-warning">Update</a>
+                           <a href="/delete?id={{ book.id }}" class="btn btn-sm btn-primary">Delete</a></td>
+                        </tr> 
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
