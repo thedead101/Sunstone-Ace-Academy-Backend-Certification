@@ -1,0 +1,48 @@
+{% extends "parent.html" %}
+
+{% block title %}
+<title>Update Details</title>
+{% endblock title %}
+
+{% block main %}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Add Details</h5>
+                <form action="/updatedetails?id={{ reqstu.id }}" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="stname" value="{{reqstu.name}}" name="name" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" value="{{reqstu.age}}"  name="age" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-control" id="gender" name="gender" value="{{reqstu.gender}}"  required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="grade" class="form-label">Grade</label>
+                        <input type="text" class="form-control" id="grade" value="{{reqstu.grade}}"  name="grade" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email"  value="{{reqstu.email}}" id="email">
+                    </div>
+
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

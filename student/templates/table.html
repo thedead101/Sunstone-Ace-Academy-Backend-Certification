@@ -1,0 +1,43 @@
+{% extends "parent.html" %}
+
+{% block title %}
+    <title>Show Details</title>
+{% endblock title %}
+
+{% block main %}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Recent Reports</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>RollNo</th>
+                            <th>Student Name</th>
+                            <th>Subject</th>
+                            <th>Gender</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stu in alldetails %}
+                        <tr>                            
+                            <td>{{stu.id}}</td>
+                            <td>{{stu.name}}</td>
+                            <td>{{stu.age}}</td>
+                            <td>{{stu.gender}}</td>
+                            <td>{{stu.email}}</td>
+                            <td><a href="/updatedetails?id={{ stu.id }}" class="btn btn-sm btn-warning">Update</a>
+                           <a href="/delete?id={{ stu.id }}" class="btn btn-sm btn-primary">Delete</a></td>
+                        </tr> 
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
